@@ -103,10 +103,6 @@ export default class Start extends Vue {
 
   submitError = "";
 
-  active(i: number): boolean {
-    return this.gift.image === this.images[i];
-  }
-
   formatCurrency(num: number): string {
     return num.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
