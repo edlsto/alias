@@ -1,6 +1,10 @@
 <template>
   <div :class="$style.imgCtn">
-    <img :src="src" :class="[$style.img, { [$style.selected]: active }]" />
+    <img
+      :src="src"
+      :class="[$style.img, { [$style.selected]: active }]"
+      @click="$emit('click')"
+    />
     <div :class="[$style.checkCtn, { [$style.visible]: active }]">
       <div :class="$style.circle"></div>
       <check :class="$style.check" />
@@ -29,7 +33,7 @@ export default class ImageButton extends Vue {
   position: relative;
 }
 
-.imgCtn:hover {
+.img:hover {
   transform: scale(1.02);
 }
 

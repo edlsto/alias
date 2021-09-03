@@ -6,8 +6,8 @@
         <ImageButton
           v-for="(image, i) in images"
           :key="i"
-          :active="active(i)"
-          @click.native="handleImage(images[i])"
+          :active="gift.image && gift.image.id === images[i].id"
+          @click="handleImage(images[i])"
           :src="images[i].url"
         />
       </div>
