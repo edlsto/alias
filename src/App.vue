@@ -15,7 +15,6 @@
 </template>
 
 <script lang="ts">
-import Home from "@/views/Home.vue";
 import Component from "vue-class-component";
 import Vue from "vue";
 import alias from "@/assets/alias.svg?inline";
@@ -26,7 +25,6 @@ import Success from "@/views/Success.vue";
 
 @Component({
   components: {
-    Home,
     alias,
     Start,
     Preview,

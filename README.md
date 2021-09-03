@@ -1,29 +1,15 @@
 # alias
 
+## About
+
+This app allows the user to create a gift card. On the first step of the flow, the user can selected an amount, a cover photo and enter their name, email and gift name. On the second step, the user can preview the gift card. The user can then launch the gift card, and receive a confirmation that it has been successfully created.
+
+## Technologies used
+
+- Vue
+- Typescript
+- CSS/Sass
+
 ## Project setup
-```
-npm install
-```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+To launch this project, clone the repo and run `npm install`, and then `npm run serve`. Go to `localhost:8080`.

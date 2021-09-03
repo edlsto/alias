@@ -8,7 +8,7 @@
       </div>
       <div :class="$style.groupGiftGoalCtn">
         <div :class="$style.groupGiftGoal">Group Gift Goal</div>
-        <div :class="$style.amount">${{ gift.amount }}</div>
+        <div :class="$style.amount">${{ formatCurrency(gift.amount) }}</div>
       </div>
     </div>
   </div>
@@ -21,6 +21,10 @@ import { Gift } from "@/types";
 @Component
 export default class Card extends Vue {
   @Prop() gift!: Gift;
+
+  formatCurrency(num: number): string {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
 }
 </script>
 
