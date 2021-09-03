@@ -63,6 +63,7 @@ export default class Preview extends Vue {
 
 .btnCtn {
   width: 500px;
+  max-width: 90%;
   margin: 2.5em auto 0;
 }
 

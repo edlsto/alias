@@ -295,4 +295,14 @@ export default class Start extends Vue {
 .actionBtn {
   margin-top: 2.5em;
 }
+
+@media screen and (max-width: 1000px) {
+  .gridCtn {
+    display: block;
+  }
+
+  .images {
+    margin-bottom: 3em;
+  }
+}
 </style>
