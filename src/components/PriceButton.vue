@@ -31,7 +31,7 @@ export default class PriceButton extends Vue {
   display: flex;
   cursor: pointer;
   padding: 1em;
-  margin-top: 1em;
+  /* margin-top: 1em; */
   justify-content: center;
 }
 

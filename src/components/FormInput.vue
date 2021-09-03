@@ -51,6 +51,7 @@ export default class FormInput extends Vue {
   color: lightgray;
   font-size: 12px;
   margin-bottom: 0.4em;
+  font-weight: 500;
 }
 
 .activeLabel {

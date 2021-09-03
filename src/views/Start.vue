@@ -12,11 +12,20 @@
         />
       </div>
       <div>
-        <button @click="handleMinus">-</button>
-        <input v-model="formattedCurrencyValue" @blur="focusOut" />
-        <button @click="handlePlus">+</button>
-        <div v-if="error">{{ error }}</div>
-        <div v-else>( $25 to $10000 )</div>
+        <h2 :class="$style.subtitle">Enter your gift's goal</h2>
+        <div :class="$style.inputCtn">
+          <button @click="handleMinus" :class="$style.incrementBtn">-</button>
+          <input
+            v-model="formattedCurrencyValue"
+            @blur="focusOut"
+            :class="$style.input"
+          />
+          <button @click="handlePlus" :class="$style.incrementBtn">+</button>
+        </div>
+        <div :class="$style.errorCtn">
+          <div v-if="error" :class="$style.amountError">{{ error }}</div>
+          <div v-else>( $25 to $10,000 )</div>
+        </div>
         <div :class="$style.priceButtonCtn">
           <PriceButton
             v-for="(priceButton, i) in priceButtons"
@@ -26,13 +35,21 @@
             :active="gift.amount === priceButtons[i]"
           />
         </div>
+        <div :class="$style.divider"></div>
         <FormInput label="Group Gift Name" v-model="gift.groupGiftName" />
         <FormInput label="Your Name" v-model="gift.name" />
         <FormInput label="Your Email" v-model="gift.email" />
-        <ActionButton @click.native="handleContinueClick" type="continue"
-          >Continue</ActionButton
-        >
-        <div v-if="submitError">{{ submitError }}</div>
+        <div :class="$style.btnErrorCtn">
+          <ActionButton
+            @click.native="handleContinueClick"
+            type="continue"
+            :class="$style.actionBtn"
+            >Continue</ActionButton
+          >
+          <div :class="$style.submitError">
+            {{ submitError }}
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -60,8 +77,6 @@ export default class Start extends Vue {
   @Prop() gift!: Gift;
 
   error = "";
-
-  activePriceButton: number | null = null;
 
   priceButtons = [100, 250, 500, 1000, 2500, 5000];
 
@@ -105,12 +120,6 @@ export default class Start extends Vue {
     return num.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
-  // handleActivePriceButtonChange(i: number): void {
-  //   if (this.activePriceButton !== i) {
-  //     this.activePriceButton = i;
-  //   }
-  // }
-
   handlePlus(): void {
     if (this.gift.amount + 25 > 10000) {
       this.gift.amount = 10000;
@@ -119,7 +128,6 @@ export default class Start extends Vue {
       this.gift.amount += 25;
     }
     this.formattedCurrencyValue = this.formatCurrency(this.gift.amount);
-    // this.activePriceButton = null;
   }
 
   handleMinus(): void {
@@ -130,7 +138,6 @@ export default class Start extends Vue {
       this.gift.amount -= 25;
     }
     this.formattedCurrencyValue = this.formatCurrency(this.gift.amount);
-    // this.activePriceButton = null;
   }
 
   focusOut(): void {
@@ -207,6 +214,7 @@ export default class Start extends Vue {
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 50px;
+  font-weight: 300;
 }
 
 .images {
@@ -223,7 +231,68 @@ export default class Start extends Vue {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto auto;
   column-gap: 1em;
+  grid-gap: 1em;
   width: 90%;
-  margin: 0 auto;
+  margin: 1em auto 0;
+}
+
+.inputCtn {
+  display: flex;
+  justify-content: center;
+  height: 48px;
+  margin: 1.8em 0 1.2em;
+}
+
+.input {
+  font-size: 28px;
+  text-align: center;
+  margin: 0 16px;
+  border: 1px solid gray;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+}
+
+.incrementBtn {
+  background: white;
+  border: 1px solid gray;
+  width: 48px;
+  font-size: 2em;
+  color: gray;
+}
+
+.subtitle {
+  font-weight: 300;
+  margin: 0 0 0.5em 0;
+  text-align: center;
+}
+
+.errorCtn {
+  text-align: center;
+  font-size: 12px;
+}
+
+.divider {
+  height: 1px;
+  background: lightgray;
+  margin-top: 2em;
+}
+
+.submitError {
+  color: red;
+  margin-top: 1em;
+  position: absolute;
+  bottom: 35px;
+}
+
+.btnErrorCtn {
+  position: relative;
+}
+
+.amountError {
+  color: red;
+}
+
+.actionBtn {
+  margin-top: 2.5em;
 }
 </style>

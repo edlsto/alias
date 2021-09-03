@@ -1,29 +1,43 @@
 <template>
   <div>
-    <img :src="gift.image.url" />
-    {{ gift.groupGiftName }}
-    From: {{ gift.name }}
-    Group gift goal
-    {{ gift.amount }}
-    <button @click="handleBackClick">Back</button>
-    <button @click="handleLaunchClick">Launch Group Gift</button>
+    <Card :class="$style.card" v-bind="{ gift }" />
+    <div :class="$style.btnCtn">
+      <ActionButton
+        @click.native="handleBackClick"
+        type="back"
+        :class="$style.actionBtn"
+        >Back</ActionButton
+      >
+      <ActionButton
+        @click.native="handleLaunchClick"
+        type="continue"
+        :class="$style.actionBtn"
+        >Launch Group Gift</ActionButton
+      >
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 // @ is an alias to /src
 
-import { Vue, Prop, Component, Watch } from "vue-property-decorator";
+import { Vue, Prop, Component } from "vue-property-decorator";
 import { Gift } from "@/types";
+import Card from "@/components/Card.vue";
+import ActionButton from "@/components/ActionButton.vue";
 
 @Component({
-  components: {},
+  components: {
+    Card,
+    ActionButton,
+  },
 })
 export default class Preview extends Vue {
   @Prop() gift!: Gift;
 
   handleBackClick(): void {
     this.$emit("back");
+    console.log("back");
   }
 
   handleLaunchClick(): void {
@@ -32,4 +46,21 @@ export default class Preview extends Vue {
 }
 </script>
 
-<style module></style>
+<style module>
+.card {
+  width: 500px;
+  max-width: 90%;
+  margin: 0 auto;
+  -webkit-box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.1);
+}
+
+.btnCtn {
+  width: 500px;
+  margin: 2.5em auto 0;
+}
+
+.actionBtn:last-child {
+  margin-top: 1em;
+}
+</style>

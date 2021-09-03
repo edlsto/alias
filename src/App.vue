@@ -53,7 +53,7 @@ export default class App extends Vue {
   height: 100vh;
   width: 100vw;
   background: #f3f3f3;
-  color: #2c3e50;
+  /* color: #2c3e50; */
   overflow: auto;
 }
 
@@ -72,7 +72,7 @@ export default class App extends Vue {
 .giftCtn {
   background: white;
   padding: 2em;
-  -webkit-box-shadow: 0px 2px 8px 1px rgba(0, 0, 0, 0.23);
+  -webkit-box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.23);
   box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.23);
 }
 </style>
