@@ -18,7 +18,7 @@ To launch this project, clone the repo and run `npm install`, and then `npm run 
 
 Start screen
 
-![Screen Shot 2021-09-03 at 12 30 23 AM](https://user-images.githubusercontent.com/4350550/131962256-5bfbf42a-140f-4fe1-9564-86d886762f8a.png)
+![Screen Shot 2021-09-03 at 12 47 29 AM](https://user-images.githubusercontent.com/4350550/131962574-bd1e2d74-9178-4b14-b4f6-9fa9dcc6e151.png)
 
 Preview screen
 
