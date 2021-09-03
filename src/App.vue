@@ -3,12 +3,14 @@
     <div :class="$style.content">
       <alias :class="$style.svg" />
       <div :class="$style.giftCtn">
-        <component
-          :is="flow[step]"
-          v-bind="{ gift }"
-          @continue="step++"
-          @back="step--"
-        />
+        <transition name="component-fade" mode="out-in">
+          <component
+            :is="flow[step]"
+            v-bind="{ gift }"
+            @continue="step++"
+            @back="step--"
+          ></component>
+        </transition>
       </div>
     </div>
   </div>

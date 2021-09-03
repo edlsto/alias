@@ -31,12 +31,16 @@ export default class PriceButton extends Vue {
   display: flex;
   cursor: pointer;
   padding: 1em;
-  /* margin-top: 1em; */
   justify-content: center;
+  color: gray;
+}
+
+.ctn:hover {
+  background: #c5d0db;
 }
 
 .active {
-  background: #2c3e50;
-  color: white;
+  background: #2c3e50 !important;
+  color: white !important;
 }
 </style>

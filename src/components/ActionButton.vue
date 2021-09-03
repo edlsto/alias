@@ -16,10 +16,17 @@ export default class ActionButton extends Vue {
 <style module>
 .button {
   display: block;
-  /* margin-top: 2.5em; */
   width: 100%;
   cursor: pointer;
   height: 2.5em;
+}
+
+.button:hover {
+  background: #080d12;
+}
+
+.button.back:hover {
+  background: #8b9db0;
 }
 
 .continue {

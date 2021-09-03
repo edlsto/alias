@@ -99,22 +99,13 @@ export default class Start extends Vue {
     },
   ];
 
-  active(i: number): boolean {
-    return this.gift.image === this.images[i];
-  }
-
-  @Watch("gift.amount")
-  onPriceChanged(val: number): void {
-    if (val < 25 || val > 10000) {
-      this.error = "Value must be more than $25 or less than $10,000";
-    } else {
-      this.error = "";
-    }
-  }
-
   formattedCurrencyValue = "250.00";
 
   submitError = "";
+
+  active(i: number): boolean {
+    return this.gift.image === this.images[i];
+  }
 
   formatCurrency(num: number): string {
     return num.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -200,6 +191,15 @@ export default class Start extends Vue {
     }
     return validated;
   }
+
+  @Watch("gift.amount")
+  onPriceChanged(val: number): void {
+    if (val < 25 || val > 10000) {
+      this.error = "Value must be more than $25 or less than $10,000";
+    } else {
+      this.error = "";
+    }
+  }
 }
 </script>
 
@@ -221,7 +221,6 @@ export default class Start extends Vue {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto 1fr;
-
   row-gap: 1em;
   column-gap: 1em;
 }
@@ -258,6 +257,11 @@ export default class Start extends Vue {
   width: 48px;
   font-size: 2em;
   color: gray;
+  cursor: pointer;
+}
+
+.incrementBtn:hover {
+  background: #c5d0db;
 }
 
 .subtitle {

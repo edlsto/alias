@@ -29,6 +29,10 @@ export default class ImageButton extends Vue {
   position: relative;
 }
 
+.imgCtn:hover {
+  transform: scale(1.02);
+}
+
 .circle {
   width: 100%;
   background: white;

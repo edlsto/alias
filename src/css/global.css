@@ -7,3 +7,12 @@ body {
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
 }
+
+.component-fade-enter-active,
+.component-fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+.component-fade-enter,
+.component-fade-leave-to {
+  opacity: 0;
+}
