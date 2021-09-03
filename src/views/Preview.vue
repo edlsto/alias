@@ -25,6 +25,7 @@ import { Vue, Prop, Component } from "vue-property-decorator";
 import { Gift } from "@/types";
 import Card from "@/components/Card.vue";
 import ActionButton from "@/components/ActionButton.vue";
+import axios from "axios";
 
 @Component({
   components: {
@@ -40,8 +41,13 @@ export default class Preview extends Vue {
     console.log("back");
   }
 
-  handleLaunchClick(): void {
-    this.$emit("continue");
+  async handleLaunchClick(): Promise<void> {
+    try {
+      // await axios.post("/a/v1/gift", this.gift);
+      this.$emit("continue");
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
 </script>
