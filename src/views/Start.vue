@@ -99,7 +99,7 @@ export default class Start extends Vue {
     },
   ];
 
-  formattedCurrencyValue = "250.00";
+  formattedCurrencyValue = this.formatCurrency(this.gift.amount);
 
   submitError = "";
 
