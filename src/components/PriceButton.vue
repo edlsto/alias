@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.ctn" @click="handleClick">
+  <div :class="[$style.ctn, { [$style.active]: active }]" @click="handleClick">
     ${{ formatCurrency(value) }}
   </div>
 </template>
@@ -12,6 +12,7 @@ import { Vue, Prop, Component } from "vue-property-decorator";
 })
 export default class PriceButton extends Vue {
   @Prop() value!: number;
+  @Prop() active!: boolean;
 
   //   active = true;
   handleClick(): void {
@@ -26,10 +27,16 @@ export default class PriceButton extends Vue {
 
 <style module>
 .ctn {
-  padding: 1em;
-  border: 1px solid black;
-  display: inline-block;
+  border: 1px solid lightgray;
+  display: flex;
   cursor: pointer;
+  padding: 1em;
   margin-top: 1em;
+  justify-content: center;
+}
+
+.active {
+  background: #2c3e50;
+  color: white;
 }
 </style>

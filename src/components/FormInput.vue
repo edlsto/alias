@@ -7,6 +7,7 @@
     >
     <input
       :id="label"
+      :class="$style.input"
       @focus="handleFocus"
       @blur="handleBlur"
       v-bind="{ value }"
@@ -28,15 +29,12 @@ export default class FormInput extends Vue {
   active = false;
 
   handleFocus(): void {
-    console.log("focused");
     this.active = true;
   }
   handleBlur(): void {
-    console.log("blur");
     this.active = false;
   }
   handleChange(value: string): void {
-    console.log("here");
     this.$emit("input", value);
   }
 }
@@ -45,14 +43,29 @@ export default class FormInput extends Vue {
 <style module>
 .ctn {
   display: block;
-  margin-top: 1em;
+  margin-top: 1.5em;
 }
 
 .label {
   display: block;
+  color: lightgray;
+  font-size: 12px;
+  margin-bottom: 0.4em;
 }
 
 .activeLabel {
-  color: green;
+  color: #2c3e50;
+}
+
+.input {
+  border: 1px solid lightgray;
+  width: 100%;
+  height: 2.5em;
+  outline: none;
+  padding-left: 0.5em;
+}
+
+.input:focus {
+  border: 1px solid #2c3e50;
 }
 </style>
